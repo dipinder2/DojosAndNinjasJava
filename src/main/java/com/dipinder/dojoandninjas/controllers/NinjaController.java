@@ -55,12 +55,13 @@ public class NinjaController {
 		}
 	}
 	
-	@RequestMapping("/ninja/{id}")
+	@RequestMapping("/ninjas/show/{id}")
 	public String  show(Model model,
-			@PathVariable("id") Long id) {
-		
-		Ninja ninja = (ninjaService.findNinja(id));
-		model.addAttribute("ninja",ninja);
+			@PathVariable("id")Long id) {
+
+		Dojo dojo = dojoService.findDojo(id);
+		model.addAttribute("dojo",dojo);
+
 		return "ninja/show.jsp";
 	}
 	
